@@ -36,12 +36,11 @@ class VideoThemeInline(admin.TabularInline):
 
 
 @admin.register(Video)
-class ArticleAdmin(admin.ModelAdmin):
+class VideoAdmin(admin.ModelAdmin):
     list_display = ['id']
     inlines = [VideoThemeInline]
 
 
-
 @admin.register(Theme)
-class SectionAdmin(admin.ModelAdmin):
+class ThemeAdmin(admin.ModelAdmin):
     list_display = ['name']

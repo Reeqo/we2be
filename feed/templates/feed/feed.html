@@ -12,7 +12,7 @@
           <a href="#"><img class="card-img-top" src="{% get_media_prefix %}{{ video.image }}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">{{ video.title }}</a>
+              <a href="{% url 'video' video.video_hash %}">{{ video.title }}</a>
             </h4>
             {% for theme in video.theme.all %}
               <span class="badge {% if theme.is_main %}badge-primary{% else %}badge-secondary{% endif %}">{{ theme.name }}</span>

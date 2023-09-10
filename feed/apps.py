@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class VideosConfig(AppConfig):
+class FeedConfig(AppConfig):
     name = 'feed'
     verbose_name = 'Лента'

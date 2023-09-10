@@ -13,3 +13,9 @@ def videos_list(request):
         videos = Video.objects.all()
     context = {'videos': videos}
     return render(request, template, context)
+
+
+def video_view(request, video_hash):
+    template = 'feed/product.html'
+    video_object = Video.objects.filter(video_hash=video_hash)
+    return render(request, template, {'video': video_object.first()})

@@ -1,0 +1,22 @@
+{% extends "feed/base.html" %}
+
+{% load static %}
+
+{% block title %}{{ video.title }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <div class="header">
+    <h5>
+      <a href="{% url 'videos' %}">Вернуться на главную</a>
+    </h5>
+    <h1>{{ video.title }}</h1>
+  </div>
+
+  <div class="content">
+    <video name="{{ video.title }}" controls autoplay width="160%" height="90%">
+      <source src="{{ BASE_DIR }}/media/{{ video.video }}" type="video/mp4">
+    </video>
+    <div>Дата загрузки: {{ video.published_at }}</div>
+  </div>
+{% endblock %}

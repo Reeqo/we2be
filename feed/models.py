@@ -6,7 +6,7 @@ import datetime
 class Video(models.Model):
     title = models.CharField(max_length=64, verbose_name='Название')
     description = models.TextField(verbose_name='Описание')
-    published_at = models.DateTimeField(verbose_name='Дата публикации')
+    published_at = models.DateTimeField(verbose_name='Дата публикации', auto_now_add=True)
     image = models.ImageField(upload_to='images', null=True, blank=True, verbose_name='Обложка')
     video = models.FileField(upload_to='videos_uploaded', null=True, verbose_name='Видеофайл')
     video_theme = models.ForeignKey('Theme', on_delete=models.CASCADE, related_name='main_videos',

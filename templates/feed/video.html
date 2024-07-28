@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ video.title }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <div class="header">
+    <h2 align="middle">{{ video.title }}</h2>
+  </div>
+
+  <div class="content">
+    <video name="{{ video.title }}" controls autoplay width="100%">
+      <source src="{{ BASE_DIR }}/media/{{ video.video }}" type="video/mp4">
+    </video>
+    <div>
+    <h6>{{ video.description }}</h6> <h6>{{ video.published_at }}</h6>
+    </div>
+  </div>
+{% endblock %}

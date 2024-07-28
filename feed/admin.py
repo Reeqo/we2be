@@ -37,7 +37,7 @@ class VideoThemeInline(admin.TabularInline):
 
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['id', 'title', 'published_at']
     inlines = [VideoThemeInline]
 
 

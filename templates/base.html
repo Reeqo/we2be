@@ -20,21 +20,25 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img src="{% static "assets/brandLogo.png" %}" width="30" height="30" class="d-inline-block align-top" alt="">
       Видеолента
     </a>
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+      {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="*">{{ request.user.username }}</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Регистрация</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="register">Регистрация</a>
+        <a class="nav-link" href="/login">Войти</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login">Войти</a>
-      </li>
+      {% endif %}
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
@@ -42,6 +46,11 @@
     </form>
   </div>
   </div>
+  {% if request.user.is_authenticated %}
+       <div align="justify">
+        <a class="nav-item" href="/logout">Выйти</a>
+       </div>
+  {% endif %}
 </nav>
 
 <div class="container">{% block content %}{% endblock %}</div>
